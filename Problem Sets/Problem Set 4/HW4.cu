@@ -236,13 +236,13 @@ void preProcess(unsigned int **inputVals,
                                                 splitChannels());
 
   //split the template
-  thrust::transform(d_Template.begin(), d_Template.end(), 
+  thrust::transform(d_Template.begin(), d_Template.end(),
                     thrust::make_zip_iterator(thrust::make_tuple(d_red_template.begin(),
                                                                  d_blue_template.begin(),
                                                                  d_green_template.begin())),
                                                 splitChannels());
 
-  
+
   thrust::device_vector<float> d_red_response(numElem);
   thrust::device_vector<float> d_blue_response(numElem);
   thrust::device_vector<float> d_green_response(numElem);
@@ -269,7 +269,7 @@ void preProcess(unsigned int **inputVals,
                                                               templateHalfWidth, numColsTemplate,
                                                               numRowsTemplate * numColsTemplate, r_mean);
   cudaDeviceSynchronize(); checkCudaErrors(cudaGetLastError());
-                                                             
+
   naive_normalized_cross_correlation<<<gridSize, blockSize>>>(thrust::raw_pointer_cast(d_blue_response.data()),
                                                               thrust::raw_pointer_cast(d_blue.data()),
                                                               thrust::raw_pointer_cast(d_blue_template.data()),
@@ -313,7 +313,7 @@ void preProcess(unsigned int **inputVals,
   float bias = *minmax.first;
 
   //we need to make all the numbers positive so that the students can sort them without any bit twiddling
-  thrust::transform(d_combined_response.begin(), d_combined_response.end(), thrust::make_constant_iterator(-bias), 
+  thrust::transform(d_combined_response.begin(), d_combined_response.end(), thrust::make_constant_iterator(-bias),
                     d_combined_response.begin(), thrust::plus<float>());
 
   //now we need to create the 1-D coordinates that will be attached to the keys

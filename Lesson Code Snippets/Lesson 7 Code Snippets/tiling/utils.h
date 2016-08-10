@@ -22,7 +22,7 @@ int compareArrays(float *ref, float *test, int N)
 	// ignore the boundaries
 	for (int i=2; i<N-2; i++)
 	{
-		if (ref[i] != test[i]) 
+		if (ref[i] != test[i])
 		{
 			printf("Error: solution does not match reference!\n");
 			printf("first deviation at location %d\n", i);

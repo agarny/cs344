@@ -52,8 +52,8 @@ int main(int argc, char **argv)
     {
         printf("Using device %d:\n", dev);
         printf("%s; global mem: %dB; compute v%d.%d; clock: %d kHz\n",
-               devProps.name, (int)devProps.totalGlobalMem, 
-               (int)devProps.major, (int)devProps.minor, 
+               devProps.name, (int)devProps.totalGlobalMem,
+               (int)devProps.major, (int)devProps.minor,
                (int)devProps.clockRate);
     }
 
@@ -81,14 +81,14 @@ int main(int argc, char **argv)
     cudaMalloc((void **) &d_bins, BIN_BYTES);
 
     // transfer the arrays to the GPU
-    cudaMemcpy(d_in, h_in, ARRAY_BYTES, cudaMemcpyHostToDevice); 
-    cudaMemcpy(d_bins, h_bins, BIN_BYTES, cudaMemcpyHostToDevice); 
+    cudaMemcpy(d_in, h_in, ARRAY_BYTES, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_bins, h_bins, BIN_BYTES, cudaMemcpyHostToDevice);
 
     int whichKernel = 0;
     if (argc == 2) {
         whichKernel = atoi(argv[1]);
     }
-        
+
     // launch the kernel
     switch(whichKernel) {
     case 0:
@@ -114,6 +114,6 @@ int main(int argc, char **argv)
     // free GPU memory allocation
     cudaFree(d_in);
     cudaFree(d_bins);
-        
+
     return 0;
 }

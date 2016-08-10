@@ -26,7 +26,7 @@ int main(void)
 
   // transfer data back to host
   thrust::copy(d_vec.begin(), d_vec.end(), h_vec.begin());
-  
+
   printf("Thrust sorted %d keys in %g ms\n", N, timer.Elapsed());
   return 0;
 }
