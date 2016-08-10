@@ -1,5 +1,5 @@
 int compare(float *h_out, float *h_sorted, int ARRAY_SIZE)
-{	
+{
 	int failure = 0;
     for(int i = 0; i < ARRAY_SIZE; i++) {
         if (h_out[i] != h_sorted[i]) {

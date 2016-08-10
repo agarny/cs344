@@ -54,7 +54,7 @@ int main(int argc, char **argv)
     cudaMalloc((void **) &d_out_shared, ARRAY_BYTES);
 
     // transfer the input array to the GPU
-    cudaMemcpy(d_in, h_in, ARRAY_BYTES, cudaMemcpyHostToDevice); 
+    cudaMemcpy(d_in, h_in, ARRAY_BYTES, cudaMemcpyHostToDevice);
 
     // cudaEvent_t start, stop;
     // cudaEventCreate(&start);
@@ -69,7 +69,7 @@ int main(int argc, char **argv)
     printf("Your code executed in %g ms\n", timer.Elapsed());
     // cudaEventSynchronize(stop);
     // float elapsedTime;
-    // cudaEventElapsedTime(&elapsedTime, start, stop);    
+    // cudaEventElapsedTime(&elapsedTime, start, stop);
 
     // copy back the result from GPU
     cudaMemcpy(h_out, d_out, ARRAY_BYTES, cudaMemcpyDeviceToHost);
@@ -82,6 +82,6 @@ int main(int argc, char **argv)
     cudaFree(d_in);
     cudaFree(d_out);
     cudaFree(d_out_shared);
-        
+
     return 0;
 }
