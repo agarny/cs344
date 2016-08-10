@@ -196,7 +196,7 @@ void preProcess(unsigned int **inputVals,
                 unsigned int **outputPos,
                 size_t &numElem,
                 const std::string& filename,
-				const std::string& templateFilename) {
+                const std::string& templateFilename) {
   //make sure the context initializes ok
   checkCudaErrors(cudaFree(0));
 

@@ -42,34 +42,34 @@ int main(int argc, char **argv) {
 
   switch (argc)
   {
-  	case 3:
-  	  input_source_file  = std::string(argv[1]);
-  	  input_dest_file = std::string(argv[2]);
+    case 3:
+      input_source_file  = std::string(argv[1]);
+      input_dest_file = std::string(argv[2]);
       output_file = "HW6_output.png";
-  	  reference_file = "HW6_reference.png";
-  	  break;
-  	case 4:
-  	  input_source_file  = std::string(argv[1]);
-  	  input_dest_file = std::string(argv[2]);
+      reference_file = "HW6_reference.png";
+      break;
+    case 4:
+      input_source_file  = std::string(argv[1]);
+      input_dest_file = std::string(argv[2]);
       output_file = std::string(argv[3]);
-  	  reference_file = "HW6_reference.png";
-  	  break;
-  	case 5:
-  	  input_source_file  = std::string(argv[1]);
-  	  input_dest_file = std::string(argv[2]);
-  	  output_file = std::string(argv[3]);
-  	  reference_file = std::string(argv[4]);
-  	  break;
-  	case 7:
-  	  useEpsCheck=true;
-  	  input_source_file  = std::string(argv[1]);
-  	  input_dest_file = std::string(argv[2]);
-  	  output_file = std::string(argv[3]);
-  	  reference_file = std::string(argv[4]);
-  	  perPixelError = atof(argv[5]);
+      reference_file = "HW6_reference.png";
+      break;
+    case 5:
+      input_source_file  = std::string(argv[1]);
+      input_dest_file = std::string(argv[2]);
+      output_file = std::string(argv[3]);
+      reference_file = std::string(argv[4]);
+      break;
+    case 7:
+      useEpsCheck=true;
+      input_source_file  = std::string(argv[1]);
+      input_dest_file = std::string(argv[2]);
+      output_file = std::string(argv[3]);
+      reference_file = std::string(argv[4]);
+      perPixelError = atof(argv[5]);
       globalError   = atof(argv[6]);
-  	  break;
-  	default:
+      break;
+    default:
         std::cerr << "Usage: ./HW6 input_source_file input_dest_filename [output_filename] [reference_filename] [perPixelError] [globalError]" << std::endl;
         exit(1);
     }
